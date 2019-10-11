@@ -18,11 +18,11 @@ function getShoppingList(id) {
 
 function getInstructions(id) {
     return db('recipes')
-        .join('instructions', 'recipes.id', '=', 'instructions.recipe_id')
+        .join('ingredients', 'recipes.id', '=', 'ingredients.recipe_id')
         .select(
-            'instructions.id',
+            'ingredients.id',
             'recipes.recipe_name',
-            'instructions.ingredient_name'
+            'ingredients.ingredient_name'
         )
         .where('recipes.id', id);
 }
